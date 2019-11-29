@@ -34,7 +34,33 @@ var r1Cartoni1000 = [
             "Prissy", 
              
             "Winchester"];
- var soluzioneCartoni1000 = [2, 2, 3]; 
+
+ var soluzioneCartoni1000 = [2, 2, 3];
+
+//SELEZIONO IL TIPO DI DOMANDA 
+
+    function SelezionaCartoni1000() {
+                selettore = Math.floor(Math.random() * 3); //Genera un numero casuale tra 0 e 2
+                
+                if (selettore==0) {
+                    inizioCartoni1000();
+                }
+                
+                if (selettore==1 && contaJolly<4) {
+                    contaJolly++;
+                    jollyCartoni1000();
+                }
+                
+                if (selettore==2 && contaRischi<2) {
+                    contaRischi++;
+                    startRischiaCartoni1000();
+                }
+                
+                else if (selettore == 1 && contaJolly >= 4 || selettore == 2 && contaRischi >= 2) {
+                    selettore = 0; 
+                    inizioCartoni1000();
+                }
+                }
 
 
 //TIMER
@@ -79,6 +105,18 @@ var r1Cartoni1000 = [
                 document.getElementById("risp2").innerHTML = r2Cartoni1000[x];
                 document.getElementById("risp3").innerHTML = r3Cartoni1000[x];
                 document.getElementById("risp4").innerHTML = r4Cartoni1000[x];
+                if(x==0){
+                    document.getElementById("img-tabellone").src = "../img/tabellone/cartoni/scooby-doo.jpg";
+                    document.getElementById("img-tabellone").style.display = "inline";
+                }
+                else if (x==1){
+                    document.getElementById("img-tabellone").src = "../img/tabellone/cartoni/dumbo.png";
+                    document.getElementById("img-tabellone").style.display = "inline";
+                } 
+                else {
+                    document.getElementById("img-tabellone").src = "../img/tabellone/cartoni/centrale-nucleare.png";
+                    document.getElementById("img-tabellone").style.display = "inline";
+                }
                 oldindice=x;
                 moveCartoni1000();
                 disabilitaBottoni(); 
@@ -102,7 +140,7 @@ var r1Cartoni1000 = [
                  risp3.style.display = "inline";
                  risp4.style.display = "inline";
                  document.getElementById("myBarTabellone").style.display = "block";
-                document.getElementById("myProgressTabellone").style.display = "block";
+                 document.getElementById("myProgressTabellone").style.display = "block";
                  
                  risp1.disabled = false;
                  risp2.disabled = false;
@@ -118,6 +156,14 @@ var r1Cartoni1000 = [
                  
                  document.getElementById("risultato").style.display = "block";
                  
+                 risposta++;
+                
+                 if (selettore == 0) 
+                     valore = 1000;
+               
+                    else 
+                        valore = rischio;
+                 
                  
                  generaDomandeCartoni1000();
         }
@@ -127,10 +173,20 @@ var r1Cartoni1000 = [
         function valutaCartoni1000(n){
             clearInterval(id);
             if (n == soluzioneCartoni1000[oldindice]) {
-                montepremi += 1000;
+                montepremi += valore;
+                if (selettore == 2) {
                 document.getElementById("risultato").innerHTML = "RISPOSTA CORRETTA<br />Montepremi: " + montepremi;
                 document.getElementById("cartoni1").style.backgroundColor = "green";
                 document.getElementById("cartoni1").style.color = "white";
+                document.getElementById("cartoni1").style.fontSize = "185%";
+                document.getElementById("cartoni1").innerHTML = "Rischio";
+                }
+                
+                else {
+                document.getElementById("risultato").innerHTML = "RISPOSTA CORRETTA<br />Montepremi: " + montepremi;
+                document.getElementById("cartoni1").style.backgroundColor = "green";
+                document.getElementById("cartoni1").style.color = "white";
+                }
                  
                 risp1.disabled = true;
                 risp2.disabled = true;
@@ -139,13 +195,24 @@ var r1Cartoni1000 = [
                 
                 document.getElementById("myBarTabellone").style.display = "none";
                 document.getElementById("myProgressTabellone").style.display = "none";
+                abilitaBottoni(); 
                 
             }
             else {
-                montepremi -= 1000;
-                document.getElementById("risultato").innerHTML = "RISPOSTA ERRATA<br />Montepremi: " + montepremi; //altrimenti stampa risposta errata
+                montepremi -= valore;
+                if (selettore == 2) {
+                document.getElementById("risultato").innerHTML = "RISPOSTA ERRATA<br />Montepremi: " + montepremi;
                 document.getElementById("cartoni1").style.backgroundColor = "red";
                 document.getElementById("cartoni1").style.color = "white";
+                document.getElementById("cartoni1").style.fontSize = "185%";
+                document.getElementById("cartoni1").innerHTML = "Rischio";
+                }
+                
+                else {
+                document.getElementById("risultato").innerHTML = "RISPOSTA ERRATA<br />Montepremi: " + montepremi;
+                document.getElementById("cartoni1").style.backgroundColor = "red";
+                document.getElementById("cartoni1").style.color = "white";
+                }
                  
                 risp1.disabled = true;
                 risp2.disabled = true;
@@ -154,11 +221,12 @@ var r1Cartoni1000 = [
                 
                 document.getElementById("myBarTabellone").style.display = "none";
                 document.getElementById("myProgressTabellone").style.display = "none";
+                abilitaBottoni(); 
             }
             
         }
 		
-		function jolly1000(){
+		function jollyCartoni1000(){
             
         document.getElementById("cartoni1").onclick = function() {}; 
         var risp1 = document.getElementById("risp1");
@@ -199,7 +267,7 @@ var r1Cartoni1000 = [
         }
 
       function tempoScadutoCartoni1000(){
-                montepremi -= 1000;
+                montepremi -= valore;
                 document.getElementById("risultato").innerHTML = "TEMPO SCADUTO<br />Montepremi: " + montepremi; 
                  
                 risp1.disabled = true;
@@ -209,7 +277,59 @@ var r1Cartoni1000 = [
                 
                 document.getElementById("myBarTabellone").style.display = "none";
                 document.getElementById("myProgressTabellone").style.display = "none";
-           document.getElementById("cartoni1").style.backgroundColor = "red";
+                document.getElementById("cartoni1").style.backgroundColor = "red";
                 document.getElementById("cartoni1").style.color = "white";
             }
+
+
+        function startRischiaCartoni1000() { 
+                
+                if (montepremi<3000 && risposta>=28) {
+                    montepremi = 3000;
+                    document.getElementById("risultato").innerHTML = "Il tuo montepremi era minore di 3000, ora è pari a 3000 e puoi rischiare!";
+                    document.getElementById("rischia").value = 3000;
+                }
+                   
+                document.getElementById("bottone-rischia").onclick = function() {RischiaCartoni1000()};
+                document.getElementById("img-tabellone").src = "../img/tabellone/rischio-2.jpg"; //Cambio l'immagine
+                document.getElementById("img-tabellone").style.display = "inline";
+                    
+                var risp1 = document.getElementById("risp1");
+                var risp2 = document.getElementById("risp2");
+                var risp3 = document.getElementById("risp3");
+                var risp4 = document.getElementById("risp4");
+                    
+                
+                //Stampo nel div la stringa     
+                document.getElementById("domanda-tabellone").innerHTML = "Hai trovato un rischio!<br>Inserisci una cifra compresa tra 3000&euro; e il tuo montepremi totale (" + montepremi + "€).";
+                document.getElementById("domanda-tabellone").style.color = "black"; //Colore dei caratteri nero
+                document.getElementById("rischia").style.display = "inline"; //Mostro il textfield per inserire il rischio
+                document.getElementById("bottone-rischia").style.display = "inline"; //Mostro il bottone
+                
+                //Nascondo i quattro bottoni di risposta
+                risp1.style.display = "none"; 
+                risp2.style.display = "none";
+                risp3.style.display = "none";
+                risp4.style.display = "none";
+                }
+
+
+                function RischiaCartoni1000() { //Funzione associata al bottone con id "bottone-rischia"
+                
+                
+                rischio = document.getElementById("rischia").value * 1; //Trasformo da stringa a intero
+                    
+                valore = rischio;
+
+                if (rischio>=3000 && rischio<=montepremi) { //Controllo se la cifra inserita è valida
+                    inizioCartoni1000(); //Se è valida, genero la domanda
+                    clearInterval(id);
+                    moveCartoni1000();
+                }
+                else
+                    document.getElementById("non-valido").style.display = "inline";
+                    document.getElementById("non-valido").innerHTML = "La cifra inserita non è accettabile!<br>Il rischio deve essere maggiore di 3000&euro; e minore del montepremi attuale (" + montepremi + "€)!"; //Altrimenti, avviso che non va bene
+                }
+
+    
             

@@ -62,6 +62,31 @@ var soluzioneSmartphone5000 = [2, 1, 4];
   }
 }
 
+//SELEZIONO IL TIPO DI DOMANDA
+
+        function SelezionaSmartphone5000() {
+                selettore = Math.floor(Math.random() * 3); //Genera un numero casuale tra 0 e 2
+                
+                if (selettore==0) {
+                    inizioSmartphone5000();
+                }
+                
+                if (selettore==1 && contaJolly<4) {
+                    contaJolly++;
+                    jollySmartphone5000();
+                }
+                
+                if (selettore==2 && contaRischi<2) {
+                    contaRischi++;
+                    startRischiaSmartphone5000();
+                }
+                
+                else if (selettore == 1 && contaJolly >= 4 || selettore == 2 && contaRischi >= 2) {
+                    selettore = 0;
+                    inizioSmartphone5000();
+                }
+                }
+
 //GENERO IL NUMERO CASUALE
 
              var oldindice;
@@ -107,8 +132,8 @@ var soluzioneSmartphone5000 = [2, 1, 4];
                  risp2.style.display = "inline";
                  risp3.style.display = "inline";
                  risp4.style.display = "inline";
-                document.getElementById("myBarTabellone").style.display = "block";
-                document.getElementById("myProgressTabellone").style.display = "block";
+                 document.getElementById("myBarTabellone").style.display = "block";
+                 document.getElementById("myProgressTabellone").style.display = "block";
                  
                  risp1.disabled = false;
                  risp2.disabled = false;
@@ -125,6 +150,12 @@ var soluzioneSmartphone5000 = [2, 1, 4];
                  document.getElementById("risultato").style.display = "block";
                     
                  risposta++;
+                    
+                 if (selettore == 0) 
+                     valore = 000;
+               
+                    else 
+                        valore = rischio;
                  
                  generaDomandeSmartphone5000();
         }
@@ -135,11 +166,21 @@ var soluzioneSmartphone5000 = [2, 1, 4];
             clearInterval(id);
             if (n == soluzioneSmartphone5000[oldindice]) {
                 montepremi += rischio;
+                
+                if (selettore == 2) {
                 document.getElementById("risultato").innerHTML = "RISPOSTA CORRETTA<br />Montepremi: " + montepremi;
+                document.getElementById("serie5").style.backgroundColor = "green";
+                document.getElementById("serie5").style.color = "white";
+                document.getElementById("serie5").style.fontSize = "185%";
+                document.getElementById("serie5").innerHTML = "Rischio";
+                }
+                
+                else {
+                document.getElementById("risultato").innerHTML = "RISPOSTA CORRETTA<br />Montepremi: " + montepremi;
+                //stampa risposta corretta nel paragrafo con id risultato
                 document.getElementById("smartphone5").style.backgroundColor = "green";
                 document.getElementById("smartphone5").style.color = "white";
-                document.getElementById("smartphone5").style.fontSize = "185%";
-                document.getElementById("smartphone5").innerHTML = "Rischio";
+                }
                  
                 risp1.disabled = true;
                 risp2.disabled = true;
@@ -153,11 +194,21 @@ var soluzioneSmartphone5000 = [2, 1, 4];
             }
             else {
                 montepremi -= rischio;
+                
+                if (selettore == 2) {
                 document.getElementById("risultato").innerHTML = "RISPOSTA ERRATA<br />Montepremi: " + montepremi; //altrimenti stampa rispost errata
                 document.getElementById("smartphone5").style.backgroundColor = "red";
                 document.getElementById("smartphone5").style.color = "white";
                 document.getElementById("smartphone5").style.fontSize = "185%";
                 document.getElementById("smartphone5").innerHTML = "Rischio";
+                }
+                
+                else {
+                document.getElementById("risultato").innerHTML = "RISPOSTA ERRATA<br />Montepremi: " + montepremi;
+                //stampa risposta corretta nel paragrafo con id risultato
+                document.getElementById("smartphone5").style.backgroundColor = "red";
+                document.getElementById("smartphone5").style.color = "white";
+                }
                  
                 risp1.disabled = true;
                 risp2.disabled = true;
@@ -193,7 +244,7 @@ var rischio = 0;
                     document.getElementById("rischia").value = 3000;
                 }
                  
-                document.getElementById("bottone-rischia").onclick = function() {Rischia()};
+                document.getElementById("bottone-rischia").onclick = function() {RischiaSmartphone5000()};
                 document.getElementById("img-tabellone").src = "../img/tabellone/rischio-2.jpg"; //Cambio l'immagine
                 document.getElementById("img-tabellone").style.display = "inline";
                     
@@ -229,7 +280,7 @@ var rischio = 0;
                 }
 
 
-                function Rischia () { //Funzione associata al bottone con id "bottone-rischia"
+                function RischiaSmartphone5000 () { //Funzione associata al bottone con id "bottone-rischia"
                 
                 
                 rischio = document.getElementById("rischia").value * 1; //Trasformo da stringa a intero
@@ -258,4 +309,45 @@ var rischio = 0;
            document.getElementById("smartphone5").style.backgroundColor = "red";
                 document.getElementById("smartphone5").style.color = "white";
             }
+
+//JOLLY
+
+    function jollySmartphone5000(){
+        
+        document.getElementById("smartphone5").onclick = function() {};
+        var risp1 = document.getElementById("risp1");
+        var risp2 = document.getElementById("risp2");
+        var risp3 = document.getElementById("risp3");
+        var risp4 = document.getElementById("risp4");
+        risp1.style.display = "none";
+        risp2.style.display = "none";
+        risp3.style.display = "none";
+        risp4.style.display = "none";
+        document.getElementById("risultato").style.display = "block";
+        montepremi += 5000;
+        document.getElementById("risultato").innerHTML = "Il jolly ha fatto aumentare il tuo montepremi di 3000&euro;!<br/> Montepremi: " + montepremi;
+        document.getElementById("smartphone5").disabled = true;
+        document.getElementById("smartphone5").style.backgroundColor = "#ffaa00";
+        document.getElementById("smartphone5").style.color = "white";
+        document.getElementById("domanda-tabellone").innerHTML = "Complimenti, hai trovato uno dei jolly!";
+        document.getElementById("img-tabellone").src = "../img/tabellone/jolly.png";
+        document.getElementById("img-tabellone").style.display = "inline";
+            
+        document.getElementById("myBarTabellone").style.display = "none";
+        document.getElementById("myProgressTabellone").style.display = "none";
+        document.getElementById("rischia").style.display = "none";
+        document.getElementById("bottone-rischia").style.display = "none";
+        document.getElementById("non-valido").style.display = "none";
+        clearInterval(id);
+            
+                 risposta++;
+        
+              if (risposta==30 && montepremi <=0)
+                window.location.href="../html/hai-perso-2.html";
+            
+            else if (risposta==30) { 
+                    window.location.href="../html/riepilogo-terza-fase.html";
+                    localStorage.setItem("montepremi", montepremi);
+                }
+        }
             

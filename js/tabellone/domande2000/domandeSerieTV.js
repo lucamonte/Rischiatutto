@@ -63,6 +63,31 @@ var DomandaSerie2000=[
   }
 }
 
+//SELEZIONO IL TIPO DI DOMANDA
+
+            function SelezionaSerie2000() {
+                selettore = Math.floor(Math.random() * 3); //Genera un numero casuale tra 0 e 2
+                
+                if (selettore==0) {
+                    inizioSerie2000();
+                }
+                
+                if (selettore==1 && contaJolly<4) {
+                    contaJolly++;
+                    jollySerie2000();
+                }
+                
+                if (selettore==2 && contaRischi<2) {
+                    contaRischi++;
+                    startRischiaSerie2000();
+                }
+                
+                else if (selettore == 1 && contaJolly >= 4 || selettore == 2 && contaRischi >= 2) {
+                    selettore = 0;
+                    inizioSerie2000();
+                }
+                }
+
 //GENERO IL NUMERO CASUALE
 
              var oldindice;
@@ -75,15 +100,15 @@ var DomandaSerie2000=[
                 document.getElementById("risp3").innerHTML = r3Serie2000[x];
                 document.getElementById("risp4").innerHTML = r4Serie2000[x];
                 if(x==0){
-                    document.getElementById("img-tabellone").src = "../img/tabellone/serie/how-i-met-your-mother.jpg";
+                    document.getElementById("img-tabellone").src = "../img/tabellone/serie/how-i-met-your-mother.png";
                     document.getElementById("img-tabellone").style.display = "inline";
                 }
                 else if (x==1){
-                    document.getElementById("img-tabellone").src = "../img/tabellone/serie/minimal-tv.jpg";
+                    document.getElementById("img-tabellone").src = "../img/tabellone/serie/netflix.png";
                     document.getElementById("img-tabellone").style.display = "inline";
                 } 
                 else {
-                    document.getElementById("img-tabellone").src = "../img/tabellone/serie/friends.jpg";
+                    document.getElementById("img-tabellone").src = "../img/tabellone/serie/friends.png";
                     document.getElementById("img-tabellone").style.display = "inline";
                 }
                 oldindice=x;
@@ -110,7 +135,7 @@ var DomandaSerie2000=[
                  risp3.style.display = "inline";
                  risp4.style.display = "inline";
                  document.getElementById("myBarTabellone").style.display = "block";
-                document.getElementById("myProgressTabellone").style.display = "block";
+                 document.getElementById("myProgressTabellone").style.display = "block";
                  
                  risp1.disabled = false;
                  risp2.disabled = false;
@@ -126,6 +151,13 @@ var DomandaSerie2000=[
                  
                  document.getElementById("risultato").style.display = "block";
                 
+                 risposta++;
+                 
+                 if (selettore == 0) 
+                     valore = 2000;
+               
+                    else 
+                        valore = rischio;
                  
                  generaDomandeSerie2000();
         }        
@@ -135,10 +167,20 @@ var DomandaSerie2000=[
         function valutaSerie2000(n){
             clearInterval(id);
             if (n == soluzioneSerie2000[oldindice]) {
-                montepremi += 2000;
+                montepremi += valore;
+                if (selettore == 2) {
                 document.getElementById("risultato").innerHTML = "RISPOSTA CORRETTA<br />Montepremi: " + montepremi;
                 document.getElementById("serie2").style.backgroundColor = "green";
                 document.getElementById("serie2").style.color = "white";
+                document.getElementById("serie2").style.fontSize = "185%";
+                document.getElementById("serie2").innerHTML = "Rischio";
+                }
+                
+                else {
+                document.getElementById("risultato").innerHTML = "RISPOSTA CORRETTA<br />Montepremi: " + montepremi;
+                document.getElementById("serie2").style.backgroundColor = "green";
+                document.getElementById("serie2").style.color = "white";
+                }
                  
                 risp1.disabled = true;
                 risp2.disabled = true;
@@ -147,12 +189,23 @@ var DomandaSerie2000=[
                 
                 document.getElementById("myBarTabellone").style.display = "none";
                 document.getElementById("myProgressTabellone").style.display = "none";
+                abilitaBottoni();
             }
             else {
-                montepremi -= 2000;
-                document.getElementById("risultato").innerHTML = "RISPOSTA ERRATA<br />Montepremi: " + montepremi; //altrimenti stampa rispost errata
+                montepremi -= valore;
+                if (selettore == 2) {
+                document.getElementById("risultato").innerHTML = "RISPOSTA ERRATA<br />Montepremi: " + montepremi;
                 document.getElementById("serie2").style.backgroundColor = "red";
                 document.getElementById("serie2").style.color = "white";
+                document.getElementById("serie2").style.fontSize = "185%";
+                document.getElementById("serie2").innerHTML = "Rischio";
+                }
+                
+                else {
+                document.getElementById("risultato").innerHTML = "RISPOSTA ERRATA<br />Montepremi: " + montepremi;
+                document.getElementById("serie2").style.backgroundColor = "red";
+                document.getElementById("serie2").style.color = "white";
+                }
                  
                 risp1.disabled = true;
                 risp2.disabled = true;
@@ -161,11 +214,14 @@ var DomandaSerie2000=[
                 
                 document.getElementById("myBarTabellone").style.display = "none";
                 document.getElementById("myProgressTabellone").style.display = "none";
+                abilitaBottoni();
             }
             
         }
+
+//JOLLY 
 		
-		function jolly2000(){
+		function jollySerie2000(){
         
         document.getElementById("serie2").onclick = function() {};
         var risp1 = document.getElementById("risp1");
@@ -205,7 +261,7 @@ var DomandaSerie2000=[
         }
 
       function tempoScadutoSerie2000(){
-                montepremi -= 2000;
+                montepremi -= valore;
                 document.getElementById("risultato").innerHTML = "TEMPO SCADUTO<br />Montepremi: " + montepremi; 
                  
                 risp1.disabled = true;
@@ -218,4 +274,56 @@ var DomandaSerie2000=[
            document.getElementById("serie2").style.backgroundColor = "red";
                 document.getElementById("serie2").style.color = "white";
             }
+
+//RISCHIO 
+
+        function startRischiaSerie2000() { //Funzione associata al bottone con id "smartphone5" sul tabellone
+                
+                if (montepremi<3000 && risposta>=28) {
+                    montepremi = 3000;
+                    document.getElementById("risultato").innerHTML = "Il tuo montepremi era minore di 3000, ora è pari a 3000 e puoi rischiare!";
+                    document.getElementById("rischia").value = 3000;
+                }
+                   
+                document.getElementById("bottone-rischia").onclick = function() {RischiaSerie2000()};
+                document.getElementById("img-tabellone").src = "../img/tabellone/rischio-2.jpg"; //Cambio l'immagine
+                document.getElementById("img-tabellone").style.display = "inline";
+                    
+                var risp1 = document.getElementById("risp1");
+                var risp2 = document.getElementById("risp2");
+                var risp3 = document.getElementById("risp3");
+                var risp4 = document.getElementById("risp4");
+                    
+                
+                //Stampo nel div la stringa     
+                document.getElementById("domanda-tabellone").innerHTML = "Hai trovato un rischio!<br>Inserisci una cifra compresa tra 3000&euro; e il tuo montepremi totale (" + montepremi + "€).";
+                document.getElementById("domanda-tabellone").style.color = "black"; //Colore dei caratteri nero
+                document.getElementById("rischia").style.display = "inline"; //Mostro il textfield per inserire il rischio
+                document.getElementById("bottone-rischia").style.display = "inline"; //Mostro il bottone
+                
+                //Nascondo i quattro bottoni di risposta
+                risp1.style.display = "none"; 
+                risp2.style.display = "none";
+                risp3.style.display = "none";
+                risp4.style.display = "none";
+                }
+
+
+                function RischiaSerie2000() { //Funzione associata al bottone con id "bottone-rischia"
+                
+                
+                rischio = document.getElementById("rischia").value * 1; //Trasformo da stringa a intero
+                    
+                valore = rischio;
+
+                if (rischio>=3000 && rischio<=montepremi) { //Controllo se la cifra inserita è valida
+                    inizioSerie2000(); //Se è valida, genero la domanda
+                    clearInterval(id);
+                    moveSerie2000();
+                }
+                else
+                    document.getElementById("non-valido").style.display = "inline";
+                    document.getElementById("non-valido").innerHTML = "La cifra inserita non è accettabile!<br>Il rischio deve essere maggiore di 3000&euro; e minore del montepremi attuale (" + montepremi + "€)!"; //Altrimenti, avviso che non va bene
+                }
+
             

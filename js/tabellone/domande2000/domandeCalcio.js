@@ -66,11 +66,37 @@ var r1Calcio2000 = [
   }
 }
 
+//SELEZIONO IL TIPO DI DOMANDA
+
+            function SelezionaCalcio2000() {
+                selettore = Math.floor(Math.random() * 3); //Genera un numero casuale tra 0 e 2
+                
+                if (selettore==0) {
+                    inizioCalcio2000();
+                }
+                
+                if (selettore==1 && contaJolly<4) {
+                    contaJolly++;
+                    jollyCalcio2000();
+                }
+                
+                if (selettore==2 && contaRischi<2) {
+                    contaRischi++;
+                    startRischiaCalcio2000();
+                }
+                
+                else if (selettore == 1 && contaJolly >= 4 || selettore == 2 && contaRischi >= 2) {
+                    selettore = 0;
+                    inizioCalcio2000();
+                }
+                }
+            
+
 //GENERO IL NUMERO CASUALE
 
              var oldindice;
             function generaDomandeCalcio2000(){
-                var x = Math.floor(Math.random() * 3); //Genera un numero casuale tra 0 e 9
+                var x = Math.floor(Math.random() * 3); //Genera un numero casuale tra 0 e 2
                 document.getElementById("domanda-tabellone").innerHTML = DomandaCalcio2000[x];/*Pone una domanda casuale 
                                                                        tra quelle presenti nel vettore*/
                 document.getElementById("risp1").innerHTML = r1Calcio2000[x];
@@ -112,8 +138,8 @@ var r1Calcio2000 = [
                  risp2.style.display = "inline";
                  risp3.style.display = "inline";
                  risp4.style.display = "inline";
-              document.getElementById("myBarTabellone").style.display = "block";
-                document.getElementById("myProgressTabellone").style.display = "block";
+                 document.getElementById("myBarTabellone").style.display = "block";
+                 document.getElementById("myProgressTabellone").style.display = "block";
                  
                  risp1.disabled = false;
                  risp2.disabled = false;
@@ -130,6 +156,12 @@ var r1Calcio2000 = [
                  document.getElementById("risultato").style.display = "block";
               
                  risposta++;
+              
+                 if (selettore == 0) 
+                     valore = 2000;
+               
+                    else 
+                        valore = rischio;
                  
                  generaDomandeCalcio2000();
         }
@@ -139,12 +171,21 @@ var r1Calcio2000 = [
         function valutaCalcio2000(n){
             clearInterval(id);
             if (n == soluzioneCalcio2000[oldindice]) {
-                montepremi+=rischio;
+                montepremi+=valore;
+                
+                if (selettore == 2) {
                 document.getElementById("risultato").innerHTML = "RISPOSTA CORRETTA<br />Montepremi: " + montepremi;
                 document.getElementById("calcio2").style.backgroundColor = "green";
                 document.getElementById("calcio2").style.color = "white";
                 document.getElementById("calcio2").style.fontSize = "185%";
                 document.getElementById("calcio2").innerHTML = "Rischio";
+                }
+                
+                else {
+                document.getElementById("risultato").innerHTML = "RISPOSTA CORRETTA<br />Montepremi: " + montepremi;
+                document.getElementById("calcio2").style.backgroundColor = "green";
+                document.getElementById("calcio2").style.color = "white";
+                }
                  
                 risp1.disabled = true;
                 risp2.disabled = true;
@@ -157,12 +198,20 @@ var r1Calcio2000 = [
                 abilitaBottoni();
             }
             else {
-                montepremi-=rischio;
-                document.getElementById("risultato").innerHTML = "RISPOSTA ERRATA<br />Montepremi: " + montepremi; //altrimenti stampa rispost errata
+                montepremi-=valore;
+                if (selettore == 2) {
+                document.getElementById("risultato").innerHTML = "RISPOSTA ERRATA<br />Montepremi: " + montepremi;
                 document.getElementById("calcio2").style.backgroundColor = "red";
                 document.getElementById("calcio2").style.color = "white";
                 document.getElementById("calcio2").style.fontSize = "185%";
                 document.getElementById("calcio2").innerHTML = "Rischio";
+                }
+                
+                else {
+                document.getElementById("risultato").innerHTML = "RISPOSTA ERRATA<br />Montepremi: " + montepremi;
+                document.getElementById("calcio2").style.backgroundColor = "red";
+                document.getElementById("calcio2").style.color = "white";
+                }
                  
                 risp1.disabled = true;
                 risp2.disabled = true;
@@ -186,7 +235,9 @@ var r1Calcio2000 = [
                 }
         }
 
-            function startRischia2() { //Funzione associata al bottone con id "smartphone5" sul tabellone
+//RISCHIO
+
+            function startRischiaCalcio2000() { //Funzione associata al bottone con id "smartphone5" sul tabellone
                 
                 if (montepremi<3000 && risposta>=28) {
                     montepremi = 3000;
@@ -194,7 +245,7 @@ var r1Calcio2000 = [
                     document.getElementById("rischia").value = 3000;
                 }
                    
-                document.getElementById("bottone-rischia").onclick = function() {Rischia2()};
+                document.getElementById("bottone-rischia").onclick = function() {RischiaCalcio2000()};
                 document.getElementById("img-tabellone").src = "../img/tabellone/rischio-2.jpg"; //Cambio l'immagine
                 document.getElementById("img-tabellone").style.display = "inline";
                     
@@ -218,10 +269,12 @@ var r1Calcio2000 = [
                 }
 
 
-                function Rischia2() { //Funzione associata al bottone con id "bottone-rischia"
+                function RischiaCalcio2000() { //Funzione associata al bottone con id "bottone-rischia"
                 
                 
                 rischio = document.getElementById("rischia").value * 1; //Trasformo da stringa a intero
+                    
+                valore = rischio;
 
                 if (rischio>=3000 && rischio<=montepremi) { //Controllo se la cifra inserita è valida
                     inizioCalcio2000(); //Se è valida, genero la domanda
@@ -234,7 +287,7 @@ var r1Calcio2000 = [
                 }
 
       function tempoScadutoCalcio2000(){
-                montepremi -= rischio;
+                montepremi -= valore;
                 document.getElementById("risultato").innerHTML = "TEMPO SCADUTO<br />Montepremi: " + montepremi; 
                  
                 risp1.disabled = true;
@@ -244,7 +297,48 @@ var r1Calcio2000 = [
                 
                 document.getElementById("myBarTabellone").style.display = "none";
                 document.getElementById("myProgressTabellone").style.display = "none";
-           document.getElementById("calcio2").style.backgroundColor = "red";
+                document.getElementById("calcio2").style.backgroundColor = "red";
                 document.getElementById("calcio2").style.color = "white";
             }
+
+//Jolly da 2000 
+
+        function jollyCalcio2000(){
+        
+        document.getElementById("calcio2").onclick = function() {};
+        var risp1 = document.getElementById("risp1");
+        var risp2 = document.getElementById("risp2");
+        var risp3 = document.getElementById("risp3");
+        var risp4 = document.getElementById("risp4");
+        risp1.style.display = "none";
+        risp2.style.display = "none";
+        risp3.style.display = "none";
+        risp4.style.display = "none";
+        document.getElementById("risultato").style.display = "block";
+        montepremi += 2000;
+        document.getElementById("risultato").innerHTML = "Il jolly ha fatto aumentare il tuo montepremi di 2000&euro;!<br/> Montepremi: " + montepremi;
+        document.getElementById("calcio2").disabled = true;
+        document.getElementById("calcio2").style.backgroundColor = "#ffaa00";
+        document.getElementById("calcio2").style.color = "white";
+        document.getElementById("domanda-tabellone").innerHTML = "Complimenti, hai trovato uno dei jolly!";
+        document.getElementById("img-tabellone").src = "../img/tabellone/jolly.png";
+        document.getElementById("img-tabellone").style.display = "inline";
+            
+        document.getElementById("myBarTabellone").style.display = "none";
+        document.getElementById("myProgressTabellone").style.display = "none";
+        document.getElementById("rischia").style.display = "none";
+        document.getElementById("bottone-rischia").style.display = "none";
+        document.getElementById("non-valido").style.display = "none";
+        clearInterval(id);
+            
+                 risposta++;
+        
+              if (risposta==30 && montepremi <=0)
+                window.location.href="../html/hai-perso-2.html";
+            
+            else if (risposta==30) { 
+                    window.location.href="../html/riepilogo-terza-fase.html";
+                    localStorage.setItem("montepremi", montepremi);
+                }
+        }
             
