@@ -1,8 +1,8 @@
 /* Stile in tutte le pagine */
 
-@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Raleway'); 
 
-body {
+body {  
     font-family: 'Raleway', sans-serif;
     color: white;
     background-color: #770103;
@@ -10,19 +10,19 @@ body {
 
 
 
-/* Stile della pagina iniziale */
+/* Stile della pagina iniziale */ 
 
 
 
 /* Stile del logo nell'Index */
 
-.logo {
-    margin-top: 5%;
+.logo { 
+    margin-top: 5%;  
     max-height: 0%;
     height: auto;
     max-width: 30%;
     width: auto;
-}
+} 
 
 /* Stile del bottone "HO CAPITO" */
 
@@ -30,72 +30,55 @@ body {
     margin: auto;
     font-family: 'Raleway', sans-serif;
     font-size: 135%;
-    padding: 1%;
+    padding: 1%; 
     height: 10%;
-    width: auto;
+    width: 15%;
     color: #770103;
-    background-color: white;
+    background-color: white; 
     border: 2px solid white;
     transition: 0.5s;
     text-decoration: none;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
     border-radius: 30px;
     font-size: bold;
-    font-weight: bold;
+    font-weight: bold; 
 }
 
-.bottone:hover, .bottone:active {
+.bottone:hover, .bottone:active {  
     cursor: pointer;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', sans-serif;  
     font-size: 150%;
     margin: auto;
     padding: 1%;
     height: 15%;
-    width: auto;
+    width: 20%;
     color: #770103;
-    background-color: white;
+    background-color: white; 
     border: 2px solid white;
     transition: 0.5s;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+    border-radius: 30px; 
     font-weight: bold;
-}
+}  
 
-/* Bottone della pagina di riepilogo della prima fase */
+/* Bottone della pagina di riepilogo della prima fase */ 
 
 .bottone-riepilogo {
     margin: auto;
     font-family: 'Raleway', sans-serif;
     font-size: auto;
-    padding: 1%;
+    padding: 1%; 
     height: 10%;
     width: auto;
     color: #770103;
-    background-color: white;
+    background-color: white; 
     border: 2px solid white;
     transition: 0.5s;
     text-decoration: none;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
     border-radius: 30px;
     font-size: bold;
-    font-weight: bold;
-}
-
-.bottone-riepilogo:hover, .bottone-riepilogo:active {
-    cursor: pointer;
-    font-family: 'Raleway', sans-serif;
-    font-size: 110%;
-    margin: auto;
-    padding: 1%;
-    height: 15%;
-    width: auto;
-    color: #770103;
-    background-color: white;
-    border: 2px solid white;
-    transition: 0.5s;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 30px;
-    font-weight: bold;
+    font-weight: bold; 
 }
 
 /* Stile del campo di testo */
@@ -111,7 +94,7 @@ body {
     font-size: 35px;
     font-weight: bold;
     border-radius: 10px;
-
+    
 }
 
 #nome {
@@ -119,13 +102,13 @@ body {
     border: 2px solid white;
     padding: 1%;
     height: 60%;
-    width: auto;
+    width: 40%;
     text-align: center;
     font-family: 'Raleway', sans-serif;
     font-size: 100%;
     font-weight: bold;
     border-radius: 15px;
-
+    
 }
 
 
@@ -146,7 +129,7 @@ body {
 
 .regolamento {
     background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
     border-radius: 15px;
     height: auto;
     width: 80%;
@@ -172,9 +155,9 @@ body {
     margin: auto;
     height: 2%;
     width: 50%;
-    padding: 0.8%;
+    padding: 0.8%;   	
     color: #770103;
-    background-color: white;
+    background-color: white; 
     border: 2px solid white;
     transition: 0.5s;
     text-decoration: none;
@@ -192,22 +175,22 @@ body {
     width: 60%;
     padding: 0.8%;
     color: #770103;
-    background-color: white;
+    background-color: white; 
     border: 2px solid white;
     transition: 0.5s;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+    border-radius: 30px; 
 	font-size: 25px;
     font-weight: bold;
-}
+} 
 
 /* Stile del titolo "Domande Preliminari" */
 
 .prima-fase {
     color: white;
-    font-size: 2em;
+    font-size: 2em;  
     margin: auto;
-    text-shadow: 4px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 4px 8px rgba(0, 0, 0, 0.2);   
 }
 
 /* Stile del sottotitolo "Scegli un argomento" */
@@ -216,19 +199,19 @@ body {
 	color: white;
 	font-size: 95%;
 	margin: auto;
-    text-shadow: 3px 6px rgba(0, 0, 0, 0.2);
+    text-shadow: 3px 6px rgba(0, 0, 0, 0.2);  
 }
 
 
 /* Stile del div della domanda dell'argomento scelto */
 
-#question {
+#question {  
     height: 130%;
     width: 75%;
     padding: 2%;
     color: black;
     background-color: white;
-    text-align: center;
+    text-align: center;    
     border-radius: 15px;
     font-size: 120%;
 }
@@ -239,7 +222,7 @@ body {
     width: 85%;
     color: black;
     background-color: white;
-    text-align: center;
+    text-align: center;    
     border-radius: 15px;
     font-size: 100%;
     line-height: 125%;
@@ -249,9 +232,9 @@ body {
 
 .titolo-geografia {
     color: white;
-    font-size: 2.5em;
+    font-size: 2.5em;  
     margin:auto;
-    text-shadow: 4px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 4px 8px rgba(0, 0, 0, 0.2);	
 }
 
 .testo-domanda {
@@ -265,36 +248,36 @@ body {
     margin: auto;
     font-family: 'Raleway', sans-serif;
     font-size: 135%;
-    padding: 1%;
+    padding: 1%; 
     height: 30%;
-    width: auto;
+    width: 15%;
     color: #770103;
-    background-color: white;
+    background-color: white; 
     border: 2px solid white;
     transition: 0.5s;
     text-decoration: none;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
     border-radius: 30px;
     font-size: bold;
-    font-weight: bold;
+    font-weight: bold; 
 }
 
-#bottone:hover, #bottone:active {
+#bottone:hover, #bottone:active {  
     cursor: pointer;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', sans-serif;  
     font-size: 150%;
     margin: auto;
     padding: 1%;
     height: 35%;
-    width: auto;
+    width: 17%;
     color: #770103;
-    background-color: white;
+    background-color: white; 
     border: 2px solid white;
     transition: 0.5s;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+    border-radius: 30px; 
     font-weight: bold;
-}
+}  
 
 /* Stile del campo di testo per inserire la risposta */
 
@@ -314,33 +297,33 @@ body {
 #ciao {
     font-family: 'Raleway', sans-serif;
     font-size: 1em;
-    text-shadow: 3px 3px rgba(0, 0, 0, 0.2);
+    text-shadow: 3px 3px rgba(0, 0, 0, 0.2);	    
 }
 
 #p-ciao {
     font-family: 'Raleway', sans-serif;
     font-size: 2em;
-    text-shadow: 3px 3px rgba(0, 0, 0, 0.2);
+    text-shadow: 3px 3px rgba(0, 0, 0, 0.2);	  
 }
 
-/* Stile della progressbar della fase iniziale */
+/* Stile della progressbar della fase iniziale */ 
 
 #myProgress {
   width: 50%;
   background-color: #770103;
   border: 1px solid #fff;
   border-radius: 10px;
-  margin: auto;
+  margin: auto; 
 }
 
 #myBar {
   width: 50%;
   background-color: #fff;
-  text-align: center;
+  text-align: center;    
   line-height: 250%;
-  color: #770103;
-  border-radius: 10px;
-}
+  color: #770103;  
+  border-radius: 10px; 
+}  
 
 /* Stile del tabellone */
 
@@ -350,7 +333,7 @@ body {
 
 .tabellone-dx {
     margin-right: 1%;
-    margin-top: 2%;
+    margin-top: 2%;  
     float: right;
     border-spacing: 2%;
     text-align: center;
@@ -358,8 +341,8 @@ body {
 
 .tabellone-sx {
     margin-left: 2%;
-    margin-top: 2%;
-    float: left;
+    margin-top: 2%;  
+    float: left;  
     border-spacing: 2%;
     text-align: center;
 }
@@ -379,17 +362,17 @@ body {
     font-family: 'Raleway', sans-serif;
     font-size: 215%;
     border-left: 2% ;
-    border-right: 2% ;
+    border-right: 2% ;   
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .tabellone:hover, .tabellone:active {
     background-color: #770103;
-    border: solid white;
+    border: solid white;  
     color: white;
-    cursor: pointer;
+    cursor: pointer; 
     padding: 5%;
-
+    
 }
 
 .div-tabellone {
@@ -401,18 +384,18 @@ body {
     width: 32%;
     margin-top: 4.5%;
     border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);     
 }
 
 .bottone-tabellone {
     margin: auto;
     font-family: 'Raleway', sans-serif;
     font-size: 20px;
-    padding: 10px;
+    padding: 10px; 
     height: 75px;
     width: 200px;
     color: #770103;
-    background-color: white;
+    background-color: white; 
     border: 2px solid white;
     transition: 0.5s;
     text-decoration: none;
@@ -426,11 +409,11 @@ body {
     margin: auto;
     font-family: 'Raleway', sans-serif;
     font-size: 20px;
-    padding: 10px;
+    padding: 10px; 
     height: 75px;
     width: 200px;
     color: #770103;
-    background-color: white;
+    background-color: white; 
     border: 2px solid white;
     transition: 0.5s;
     text-decoration: none;
@@ -458,30 +441,30 @@ body {
   background-color: #770103;
   border: 1px solid #fff;
   border-radius: 10px;
-  margin: auto;
+  margin: auto; 
 }
 
 #myBarTabellone {
   width: 0;
   height: 30px;
   background-color: #fff;
-  text-align: center;
+  text-align: center;    
   line-height: 30px;
-  color: #770103;
-  border-radius: 10px;
-  animation:
-}
+  color: #770103;  
+  border-radius: 10px; 
+  animation: 
+}  
 
-/* ::-webkit-input-placeholder {
+/* ::-webkit-input-placeholder { 
     color: black;
 }
-:-moz-placeholder {
+:-moz-placeholder { 
+    color: black;  
+}
+::-moz-placeholder { 
     color: black;
 }
-::-moz-placeholder {
-    color: black;
-}
-:-ms-input-placeholder {
+:-ms-input-placeholder { 
     color: black;
 }  */
 
@@ -502,19 +485,19 @@ body {
 ::-webkit-scrollbar{
     width:10px;
 }
-
+ 
 ::-webkit-scrollbar-track{
-    border-radius:10px;
-    background:#770103;
+    border-radius:10px; 
+    background:#770103; 
     -webkit-box-shadow:inset 0 0 4px rgba(0,0,0,0.1);
 }
-
+ 
 ::-webkit-scrollbar-thumb{
-    border-radius:10px;
+    border-radius:10px; 
     background:#fff;
 }
 
-/* Stile del riepilogo della prima fase */
+/* Stile del riepilogo della prima fase */ 
 
 #nick, #mont, #num {
     font-weight: 900;
@@ -525,7 +508,7 @@ body {
     font-weight: 600;
 }
 
-/* Stile del riepilogo della terza fase */
+/* Stile del riepilogo della terza fase */ 
 
 h3 {
     font-weight: 400;
@@ -535,7 +518,7 @@ h3 {
     font-weight: 900;
 }
 
-/* Stile della pagina "Hai Vinto" */
+/* Stile della pagina "Hai Vinto" */ 
 
 .avatar {
     max-height: 60%;
@@ -555,7 +538,7 @@ h3 {
     text-shadow: 3px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* Stile dei rischi */
+/* Stile dei rischi */ 
 
 #rischia {
     display: none;
@@ -569,7 +552,6 @@ h3 {
     font-size: 100%;
     font-weight: bold;
     border-radius: 10px;
-    margin: auto;
 }
 
 #bottone-rischia {
@@ -577,11 +559,11 @@ h3 {
     margin: auto;
     font-family: 'Raleway', sans-serif;
     font-size: 20px;
-    padding: 10px;
+    padding: 10px; 
     height: 75px;
     width: 200px;
     color: #770103;
-    background-color: white;
+    background-color: white; 
     border: 2px solid white;
     transition: 0.5s;
     text-decoration: none;
@@ -595,11 +577,11 @@ h3 {
     margin: auto;
     font-family: 'Raleway', sans-serif;
     font-size: 20px;
-    padding: 10px;
+    padding: 10px; 
     height: 75px;
     width: 200px;
     color: #770103;
-    background-color: white;
+    background-color: white; 
     border: 2px solid white;
     transition: 0.5s;
     text-decoration: none;
@@ -610,13 +592,13 @@ h3 {
     cursor: pointer;
 }
 
-/* Stile del tip "segnala bug" */
+/* Stile del tip "segnala bug" */ 
 
 /* Tooltip container */
 .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    border-bottom: 1px dotted black; /* Per i pallini sotto il testo */
 }
 
 /* Tooltip text */
@@ -629,19 +611,19 @@ h3 {
     padding: 5px 0;
     border-radius: 6px;
 
-    /* Position the tooltip text */
+    /* Posizione del tooltip */
     position: absolute;
     z-index: 1;
     bottom: 125%;
     left: 50%;
     margin-left: -60px;
 
-    /* Fade in tooltip */
+    /* Transizione tooltip */
     opacity: 0;
     transition: opacity 1s;
 }
 
-/* Tooltip arrow */
+/* Dopo il click */
 .tooltip .tooltiptext::after {
     content: "";
     position: absolute;
@@ -653,7 +635,7 @@ h3 {
     border-color: #555 transparent transparent transparent;
 }
 
-/* Show the tooltip text when you mouse over the tooltip container */
+/* Mostra il tooltip quando si fa hover col mouse */
 .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
