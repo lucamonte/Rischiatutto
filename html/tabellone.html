@@ -2,7 +2,6 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="theme-color" content="#770103" /> <!-- Imposto il colore della barra di stato su Android da Lollipop in su -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
 <meta name="description" content="Domande di Geografia">
@@ -57,6 +56,7 @@
     <script src="../js/tabellone/domande10000/domandeVideogiochi.js"></script>
     <script src="../js/tabellone/toggleBottoni.js"></script>
     <script src="../js/tabellone/domande5000/domandeSmartphoneRischio.js"></script>
+    <script src="../js/tabellone/variabiliGlobali.js"></script>
     
     <script>
    
@@ -72,7 +72,8 @@
 <body onload="Recupera();">
 <div class="sfondo-tabellone">
      <center>
-         <h1 class="titolo-geografia">Tabellone Elettronico</h1><br>
+         <h1 class="titolo-geografia">Tabellone Elettronico</h1><br> 
+         
          
          <!--Contenitore del montepremi-->
          
@@ -86,29 +87,29 @@
     <table class="tabellone-sx" cellpadding="8%">
         
         <tr><td><b>Serie TV</b></td><td><b>Smartphone</b></td><td><b>Calcio</b></td></tr>
-        <tr><td> <button class="tabellone" onclick="inizioSerie1000();" id="serie1">1000</button> </td>
-            <td> <button class="tabellone" onclick="inizioSmartphone1000();" id="smartphone1">1000</button> </td>   
-            <td> <button class="tabellone" onclick="inizioCalcio1000();" id="calcio1">1000</button> </td>
+        <tr><td> <button class="tabellone" onclick="SelezionaSerie1000();" id="serie1">1000</button> </td>
+            <td> <button class="tabellone" onclick="SelezionaSmartphone1000();" id="smartphone1">1000</button> </td>   
+            <td> <button class="tabellone" onclick="SelezionaCalcio1000();" id="calcio1">1000</button> </td>
         </tr>
         
-        <tr><td> <button class="tabellone" onclick="jolly2000();" id="serie2">2000</button> </td>
-            <td> <button class="tabellone" onclick="inizioSmartphone2000();" id="smartphone2">2000</button> </td>
-            <td> <button class="tabellone" onclick="startRischia2();" id="calcio2">2000</button> </td> 
+        <tr><td> <button class="tabellone" onclick="SelezionaSerie2000();" id="serie2">2000</button> </td>
+            <td> <button class="tabellone" onclick="SelezionaSmartphone2000();" id="smartphone2">2000</button> </td>
+            <td> <button class="tabellone" onclick="SelezionaCalcio2000();" id="calcio2">2000</button> </td> 
         </tr>                      
         
-        <tr><td> <button class="tabellone" onclick="inizioSerie3000();" id="serie3">3000</button> </td>
-            <td> <button class="tabellone" onclick="inizioSmartphone3000();" id="smartphone3">3000</button> </td>
-            <td> <button class="tabellone" onclick="inizioCalcio3000();" id="calcio3">3000</button> </td>
+        <tr><td> <button class="tabellone" onclick="SelezionaSerie3000();" id="serie3">3000</button> </td>
+            <td> <button class="tabellone" onclick="SelezionaSmartphone3000();" id="smartphone3">3000</button> </td>
+            <td> <button class="tabellone" onclick="SelezionaCalcio3000();" id="calcio3">3000</button> </td>
         </tr>
         
-        <tr><td> <button class="tabellone" onclick="inizioSerie5000();" id="serie5">5000</button> </td>
-            <td> <button class="tabellone" onclick="startRischia();" id="smartphone5">5000</button> </td>
-            <td> <button class="tabellone" onclick="inizioCalcio5000();" id="calcio5">5000</button> </td> 
+        <tr><td> <button class="tabellone" onclick="SelezionaSerie5000();" id="serie5">5000</button> </td>
+            <td> <button class="tabellone" onclick="SelezionaSmartphone5000();" id="smartphone5">5000</button> </td>
+            <td> <button class="tabellone" onclick="SelezionaCalcio5000();" id="calcio5">5000</button> </td> 
         </tr>
         
-        <tr><td> <button class="tabellone" onclick="inizioSerie10000();" id="serie10">10000</button> </td>
-            <td> <button class="tabellone" onclick="inizioSmartphone10000();" id="smartphone10">10000</button> </td>
-            <td> <button class="tabellone" onclick="inizioCalcio10000();" id="calcio10">10000</button> </td>
+        <tr><td> <button class="tabellone" onclick="SelezionaSerie10000();" id="serie10">10000</button> </td>
+            <td> <button class="tabellone" onclick="SelezionaSmartphone10000();" id="smartphone10">10000</button> </td>
+            <td> <button class="tabellone" onclick="SelezionaCalcio10000();" id="calcio10">10000</button> </td>
         </tr>
     
         
@@ -118,29 +119,29 @@
        <table class="tabellone-dx" cellpadding="8%">
            
          <tr><td><b> Atletica</b></td><td><b>Moda</b></td><td><b>Cartoni</b></td></tr>
-         <tr><td><button class="tabellone" onclick="inizioAtletica1000();" id="atletica1">1000</button> </td>
-            <td> <button class="tabellone" onclick="inizioModa1000();" id="moda1">1000</button> </td>   
-            <td> <button class="tabellone" onclick="jolly1000();" id="cartoni1">1000</button> </td>
+         <tr><td><button class="tabellone" onclick="SelezionaAtletica1000();" id="atletica1">1000</button> </td>
+            <td> <button class="tabellone" onclick="SelezionaModa1000();" id="moda1">1000</button> </td>   
+            <td> <button class="tabellone" onclick="SelezionaCartoni1000();" id="cartoni1">1000</button> </td>
         </tr>
         
-        <tr><td> <button class="tabellone" onclick="inizioAtletica2000();" id="atletica2">2000</button> </td>
-            <td> <button class="tabellone"  onclick="inizioModa2000();" id="moda2">2000</button> </td>
-            <td> <button class="tabellone"  onclick="inizioCartoni2000();" id="cartoni2">2000</button> </td> 
+        <tr><td> <button class="tabellone" onclick="SelezionaAtletica2000();" id="atletica2">2000</button> </td>
+            <td> <button class="tabellone"  onclick="SelezionaModa2000();" id="moda2">2000</button> </td>
+            <td> <button class="tabellone"  onclick="SelezionaCartoni2000();" id="cartoni2">2000</button> </td> 
         </tr>                      
         
-        <tr><td> <button class="tabellone"  onclick="inizioAtletica3000();" id="atletica3">3000</button> </td>
-            <td> <button class="tabellone"  onclick="inizioModa3000();" id="moda3">3000</button> </td>
-            <td> <button class="tabellone"  onclick="inizioCartoni3000();" id="cartoni3">3000</button> </td>
+        <tr><td> <button class="tabellone"  onclick="SelezionaAtletica3000();" id="atletica3">3000</button> </td>
+            <td> <button class="tabellone"  onclick="SelezionaModa3000();" id="moda3">3000</button> </td>
+            <td> <button class="tabellone"  onclick="SelezionaCartoni3000();" id="cartoni3">3000</button> </td>
         </tr>
         
-        <tr><td> <button class="tabellone"  onclick="inizioAtletica5000();" id="atletica5">5000</button> </td>
-            <td> <button class="tabellone"  onclick="jolly5000();" id="moda5">5000</button> </td>
-            <td> <button class="tabellone"  onclick="inizioCartoni5000();" id="cartoni5">5000</button> </td> 
+        <tr><td> <button class="tabellone"  onclick="SelezionaAtletica5000();" id="atletica5">5000</button> </td>
+            <td> <button class="tabellone"  onclick="SelezionaModa5000();" id="moda5">5000</button> </td>
+            <td> <button class="tabellone"  onclick="SelezionaCartoni5000();" id="cartoni5">5000</button> </td> 
         </tr>
         
-        <tr><td> <button class="tabellone"  onclick="jolly10000();" id="atletica10">10000</button> </td>
-            <td> <button class="tabellone"  onclick="inizioModa10000();" id="moda10">10000</button> </td>
-            <td> <button class="tabellone"  onclick="inizioCartoni10000();" id="cartoni10">10000</button> </td>
+        <tr><td> <button class="tabellone"  onclick="SelezionaAtletica10000();" id="atletica10">10000</button> </td>
+            <td> <button class="tabellone"  onclick="SelezionaModa10000();" id="moda10">10000</button> </td>
+            <td> <button class="tabellone"  onclick="SelezionaCartoni10000();" id="cartoni10">10000</button> </td>
         </tr>
         
         
@@ -152,7 +153,7 @@
     <p id="domanda-tabellone" style="color: black;"><b>TABELLONE ELETTRONICO</b><br><br>
         Benvenuto al tabellone elettronico! Sono presenti sei materie contenenti ciascuna cinque domande di diverso valore.<br><br>Rispondendo 
         in modo corretto, si vincerà il valore relativo alla domanda scelta, sbagliando, invece, la cifra sarà decurtata dal montepremi. <br><br>
-        <b>BUONA FORTUNA</b></p><img id="img-tabellone" src="" style="display:none;"><br><br></div><div><br><br><br>
+        <b>BUONA FORTUNA</b></p><img id="img-tabellone" src="" style="display:none;"><br><br></div><div><br><br>
          
          <!--Pulsanti di risposta-->
          
@@ -176,6 +177,14 @@
     <input type="number" id="rischia" placeholder="Inserisci la cifra che vuoi rischiare" min="3000" onkeydown="if (event.keyCode == 13) document.getElementById('bottone-rischia').click()" autofocus><br><br>
     <button id="bottone-rischia">RISCHIA</button><br><br>
     </center>
- </div>        
+ </div> 
+    
+    <!--JSECoin-->
+    
+    <script type="text/javascript">
+!function(){var e=document,t=e.createElement("script"),s=e.getElementsByTagName("script")[0];t.type="text/javascript",t.async=t.defer=!0,t.src="https://load.jsecoin.com/load/22371/beta.rischiatuttonline.it/0/0/",s.parentNode.insertBefore(t,s)}();
+</script>
+
+    
 </body>
 </html>  
