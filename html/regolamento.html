@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="theme-color" content="#770103" /> <!-- Imposto il colore della barra di stato su Android da Lollipop in su -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Domande di Geografia">
+<meta name="author" content="Luca Monteverdi; Tiziano Murzio; Daniel Angulo; Simone Mainardi; Giorgia Paolello; Matteo Rozza; ">
+<meta name="copyright" content="Team Crilt">
+<link rel="stylesheet" href="../css/stile.css" type="text/css">
+<link rel="icon" href="../img/favicon/favicon-3.png" type="image/png">
+    
+    <script>
+    function Recupera () {
+        var n = localStorage.getItem("nome");
+        document.getElementById("ciao").innerHTML = n;  
+    }
+    </script>
+    
+<title>Regolamento</title>
+
+</head>
+
+<body onload="Recupera();"><center>
+    <br>
+    <img src="../img/logo/logo-5.png" height="15%" width="15%">
+    <br><br>
+    
+	<p id="p-ciao">Ciao, <b id="ciao"></b>!</p>
+    <div class="regolamento">
+    <h1> Regolamento</h1>
+    <h3> Allegria!<br><br>
+    Benvenuti al rischiatutto, uno dei quiz televisivi più amati dagli italiani.
+    </h3><br>
+    <div>
+        <span class="grassetto">DOMANDE PRELIMINARI:</span><br>
+            <p> Il giocatore dovrà selezionare un argomento tra quelli presenti.<br>
+                10 domande da 3000 € l'una, 25 secondi per rispondere.</p>
+                <span class="grassetto">TABELLONE ELETTRONICO:<br></span>
+            <p>Sul tabellone saranno presenti 4 jolly sparsi tra le domande,<br>
+                una domanda speciale e 2 rischi in cui è possibile rischiare una somma da 3000€
+                fino ad un massimo pari al proprio montepremi raggiunto. <br>
+                In caso di risposta errata la somma in palio verrà persa. <br>
+  	            Il tempo sarà di 20 secondi a risposta.<br>Se il montepremi dovesse essere negativo al termine del tabellone, il gioco finirà.</p>
+       
+        <span class="grassetto"> RADDOPPIO FINALE:</span><br>
+            <p>Le 5 domande all’interno della busta selezionata saranno inerenti all’argomento inizialmente scelto.<br>
+               Le risposte vanno date entro un minuto e mezzo complessivo; <br>
+                se date tutte correttamente, il giocatore vincerà il montepremi accumulato in precedenza, raddoppiato, altrimenti non si verificherà alcuna vincita.
+            </p>
+    </div><br>  
+    </div>
+<br><br><button class="bottone" onclick="window.location.href='prima-fase.html'">HO CAPITO</button>
+<br><br><br>
+    </center>
+</body>
+</html>

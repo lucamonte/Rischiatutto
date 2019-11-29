@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="theme-color" content="#770103" /> <!-- Imposto il colore della barra di stato su Android da Lollipop in su -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Domande di Geografia">
+<meta name="author" content="Luca Monteverdi; Tiziano Murzio; Daniel Angulo; Simone Mainardi; Giorgia Paolello; Matteo Rozza; ">
+<meta name="copyright" content="Team Crilt">
+<link rel="stylesheet" href="../css/stile.css" type="text/css">
+<link rel="icon" href="../img/favicon/favicon-3.png" type="image/png">
+<title>Riepilogo</title>
+
+    <script>
+    
+        var nick, numCorrette, montepremi1, montepremiTot, montepremiTab;
+        function Recupera () {
+            //Recupero il nome e lo stampo
+            nick = localStorage.getItem("nome"); 
+            document.getElementById("nick").innerHTML = nick; 
+            
+            //Recupero il numero delle risposte corrette nella prima fase 
+            numCorrette = localStorage.getItem("rCorrette");
+            
+            //Adesso che ho il numero delle risposte corrette, lo devo moltiplicare per 3000 per avere il montepremi totale della prima fase
+            montepremi1 = numCorrette * 3000;
+            
+            //Stampo il montepremi della prima fase
+            document.getElementById("mont1").innerHTML = montepremi1;
+            
+            //Calcolo il montepremi del tabellone
+            montepremiTot = localStorage.getItem("montepremi");
+            montepremiTab = montepremiTot *1 - montepremi1 *1;
+            document.getElementById("mont2").innerHTML = montepremiTab;
+            
+            //Recupero il montepremi totale e lo stampo
+            document.getElementById("tot").innerHTML = montepremiTot;
+            
+            //Stampo la scritta che invita l'utente a proseguire
+            document.getElementById("prosegui").innerHTML = "Per proseguire con la terza fase, premi il pulsante qui sotto!";
+        }
+    
+    </script>
+    
+</head>
+<body onload="Recupera();">
+<center>
+<img src="../img/logo/logo-5.png" height="8%" width="8%">
+<h1>Riepilogo</h1>
+    <div class="regolamento">
+    <h2>Ciao, <span id="nick"></span>!</h2><br><br>
+    <h3>Durante la prima fase, hai accumulato un montepremi di <span id="mont1"></span>€.</h3>
+    <h3>Grazie al tabellone, sei riuscito ad accumulare altri <span id="mont2"></span>€.</h3>
+    <h3>In totale, la cifra in palio ammonta a <span id="tot"></span>€.</h3>
+        <br><br>
+    <h2 id="prosegui"></h2>
+        <div class="tooltip">Qualcosa non va?
+  <span class="tooltiptext"><a href="segnala-bug.html" target="_blank" style="color: white;">Clicca e faccelo sapere!</a></span>
+        </div></div><br><br><br>
+<a class="bottone-riepilogo" href="terza-fase.html">VAI ALLA TERZA FASE</a><br><br>
+
+</center>
+</body>
+</html>

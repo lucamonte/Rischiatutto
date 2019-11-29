@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="theme-color" content="#770103" /> <!-- Imposto il colore della barra di stato su Android da Lollipop in su -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Domande di Geografia">
+<meta name="author" content="Luca Monteverdi; Tiziano Murzio; Daniel Angulo; Simone Mainardi; Giorgia Paolello; Matteo Rozza; ">
+<meta name="copyright" content="Team Crilt">
+<link rel="stylesheet" href="../css/stile.css" type="text/css">
+<link rel="icon" href="../img/favicon/favicon-3.png" type="image/png">
+<title>Riepilogo</title>
+
+    <script>
+    
+        var nick, numCorrette, montepremi1;
+        function Recupera () {
+            //Recupero il nome e lo stampo
+            nick = localStorage.getItem("nome"); 
+            document.getElementById("nick").innerHTML = nick; 
+            
+            //Recupero il numero delle risposte corrette nella prima fase e lo stampo 
+            numCorrette = localStorage.getItem("rCorrette");
+            document.getElementById("num").innerHTML = numCorrette;
+            
+            //Adesso che ho il numero delle risposte corrette, lo devo moltiplicare per 3000 per avere il montepremi totale della prima fase
+            montepremi1 = numCorrette * 3000;
+            
+            //Stampo il montepremi della prima fase
+            document.getElementById("mont").innerHTML = montepremi1;
+            
+            //Stampo la scritta che invita l'utente a proseguire
+            document.getElementById("prosegui").innerHTML = "Per proseguire con il tabellone, premi il pulsante qui sotto!";
+        }
+    
+    </script>
+    
+</head>
+<body onload="Recupera();">
+<center>
+<img src="../img/logo/logo-5.png" height="8%" width="8%">
+<h1>Riepilogo</h1>
+    <div class="regolamento">
+    <h2>Ciao, <span id="nick"></span>!</h2><br>
+    <h3>La prima fase si è appena conclusa! Hai risposto correttamente a <span id="num"></span> domande!</h3>
+    <h3>Il montepremi che hai guadagnato, quindi, ammonta a <span id="mont"></span>€.</h3>
+        <br>
+        <span id="avviso"></span>
+        <br><br>
+    <h2 id="prosegui"></h2>
+    <div class="tooltip">Qualcosa non va?
+    <span class="tooltiptext"><a href="segnala-bug.html" target="_blank" style="color: white;">Clicca e faccelo sapere!</a></span>
+    </div></div><br><br><br>
+<a class="bottone-riepilogo" href="tabellone.html">VAI AL TABELLONE ELETTRONICO</a><br><br>
+</center>
+</body>
+</html>

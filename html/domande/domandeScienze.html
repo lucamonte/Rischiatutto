@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="theme-color" content="#770103" /> <!-- Imposto il colore della barra di stato su Android da Lollipop in su -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Domande di Geografia">
+<meta name="author" content="Luca Monteverdi; Tiziano Murzio; Daniel Angulo; Simone Mainardi; Giorgia Paolello; Matteo Rozza; ">
+<meta name="copyright" content="Team Crilt">
+<link rel="stylesheet" href="../../css/stile.css" type="text/css">
+<link rel="icon" href="../../img/favicon/favicon-3.png" type="image/png">
+<script src="../../js/primaFase/domandeScienze.js"></script>  
+<script src="../../js/primaFase/ripetizioneDomande/busta.js"></script> 
+<script src="../../js/primaFase/timer/timer.js"></script>
+<script src="../../js/primaFase/variabiliGlobali/variabiliGlobali.js"></script>
+    
+<title>Domande Scienze</title>  
+
+</head>
+<body onload="Carica30();">
+<center>
+    <img src="../../img/logo/logo-5.png" height="8%" width="8%"><br>
+    <h1 class="titolo-geografia">Domande di Scienze</h1>
+    <br>
+    <div id="risultato"></div>
+    <br>
+<div id="question">
+    <span class="grassetto">Hai scelto l'argomento: SCIENZE</span><br><br> 
+    Quando sarai pronto, premendo il bottone "inizia" ti saranno poste 10 domande, dal valore di 3000 € ciascuna. <br>
+    Avrai a disposizione 25 secondi di tempo per rispondere.
+    
+</div><br>
+    <input id="textfield" name="risposta" type="text" placeholder="Digita qui la risposta!" size="40" maxlength="200" onkeydown = "if (event.keyCode == 13) document.getElementById('bottone').click();" style="display: none"/>  
+    <br><br>
+    <button  id="bottone" onclick="generaDomande();">INIZIA!</button><br> <br><br></center>   
+    
+     <div id="myProgress" style="display: none">
+            <div id="myBar" style="display: none">0</div>
+        </div>      
+</body>
+</html>
